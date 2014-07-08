@@ -1,14 +1,14 @@
 # MongoidMarkdownExtension
 
-Returns a Markdown object with to_html method.
+Returns a Markdown object with to_html (using Redcarpet) method.
 
 Default options:
 
-* autolink: true,
-* footnotes: true,
-* highlight: true,
-* space_after_headers: true,
-* strikethrough: true,
+* autolink: true
+* footnotes: true
+* highlight: true
+* space_after_headers: true
+* strikethrough: true
 * superscript: true
 
 These can be overwritten with an initializer.
