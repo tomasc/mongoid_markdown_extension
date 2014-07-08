@@ -1,6 +1,17 @@
 # MongoidMarkdownExtension
 
-TODO: Write a gem description
+Returns a Markdown object with to_html method.
+
+Default options:
+
+* autolink: true,
+* footnotes: true,
+* highlight: true,
+* space_after_headers: true,
+* strikethrough: true,
+* superscript: true
+
+These can be overwritten with an initializer.
 
 ## Installation
 
@@ -18,11 +29,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add to Mongoid models as:
+
+    field :text, type: MongoidMarkdownExtension::Markdown
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/mongoid_markdown_extension/fork )
+1. Fork it ( https://github.com/tomasc/mongoid_markdown_extension/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
