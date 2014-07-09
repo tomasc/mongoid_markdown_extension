@@ -40,7 +40,7 @@ Add to Mongoid models:
         field :text, type: MongoidMarkdownExtension::Markdown
     end
     
-Use in your views:
+In a view:
 
     = my_model.text.to_html
 
