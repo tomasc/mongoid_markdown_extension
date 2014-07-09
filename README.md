@@ -33,9 +33,13 @@ Or install it yourself as:
 
 ## Usage
 
-Add to Mongoid models as:
+Add to Mongoid models:
 
     field :text, type: MongoidMarkdownExtension::Markdown
+    
+Use in your views:
+
+    = your_model.text.to_html
 
 ## Contributing
 
