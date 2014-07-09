@@ -1,6 +1,6 @@
 # Mongoid Markdown Extension
 
-Returns a Markdown object with to_html (using Redcarpet) method.
+Returns a Markdown object with `to_html` method that converts the content of the field from Markdown syntax to html using [Redcarpet](https://github.com/vmg/redcarpet).
 
 Default options:
 
