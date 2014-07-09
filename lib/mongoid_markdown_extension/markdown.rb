@@ -24,7 +24,7 @@ module MongoidMarkdownExtension
 
     def markdown_renderer
       Redcarpet::Markdown.new(
-        Redcarpet::Render::HTML(self.class.configuration.render_options),
+        Redcarpet::Render::HTML.new(self.class.configuration.render_options),
         self.class.configuration.extensions
       )
     end
