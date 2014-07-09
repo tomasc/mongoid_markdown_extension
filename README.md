@@ -33,14 +33,14 @@ TODO: describe configuration options
 
 ## Usage
 
-Add to Mongoid models:
+Add to a Mongoid model:
 
     class MyModel
         include Mongoid::Document
         field :text, type: MongoidMarkdownExtension::Markdown
     end
     
-In a view:
+Use it in a view:
 
     = my_model.text.to_html
 
