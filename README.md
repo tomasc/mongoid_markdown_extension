@@ -11,7 +11,7 @@ Default options:
 * strikethrough: true
 * superscript: true
 
-These can be overwritten with an initializer.
+These can be overwritten with an initializer. See Configuration below.
 
 ## Installation
 
