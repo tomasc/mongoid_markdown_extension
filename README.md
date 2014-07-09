@@ -1,4 +1,4 @@
-# MongoidMarkdownExtension
+# Mongoid Markdown Extension
 
 Returns a Markdown object with to_html (using Redcarpet) method.
 
