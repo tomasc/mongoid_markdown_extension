@@ -35,11 +35,14 @@ Or install it yourself as:
 
 Add to Mongoid models:
 
-    field :text, type: MongoidMarkdownExtension::Markdown
+    class MyModel
+        include Mongoid::Document
+        field :text, type: MongoidMarkdownExtension::Markdown
+    end
     
 Use in your views:
 
-    = your_model.text.to_html
+    = my_model.text.to_html
 
 ## Contributing
 
