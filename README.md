@@ -27,6 +27,10 @@ Or install it yourself as:
 
     $ gem install mongoid_markdown_extension
 
+## Configuration
+
+    TODO
+
 ## Usage
 
 Add to Mongoid models as:
