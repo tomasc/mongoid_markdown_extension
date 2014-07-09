@@ -1,6 +1,6 @@
 # Mongoid Markdown Extension
 
-[Mongoid](https://github.com/mongoid/mongoid) field extension that returns an object with `to_html` method returning the content of the field converted from Markdown syntax to html using [Redcarpet](https://github.com/vmg/redcarpet).
+[Mongoid](https://github.com/mongoid/mongoid) field extension that returns an object with `to_html` method returning the content converted from Markdown syntax to html using [Redcarpet](https://github.com/vmg/redcarpet).
 
 Default options:
 
