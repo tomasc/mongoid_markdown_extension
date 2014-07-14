@@ -2,15 +2,6 @@
 
 [Mongoid](https://github.com/mongoid/mongoid) field extension that returns an object with `to_html` method returning the content converted from Markdown syntax to html. The Markdown conversion is done using the [Redcarpet](https://github.com/vmg/redcarpet) library.
 
-Default options:
-
-* autolink: true
-* footnotes: true
-* highlight: true
-* space_after_headers: true
-* strikethrough: true
-* superscript: true
-
 These can be overwritten with an initializer. See Configuration below.
 
 ## Installation
@@ -28,6 +19,21 @@ Or install it yourself as:
     $ gem install mongoid_markdown_extension
 
 ## Configuration
+
+The defaults are as follows:
+
+```Ruby
+extensions = {
+    autolink: true
+    footnotes: true
+    highlight: true
+    space_after_headers: true
+    strikethrough: true
+    superscript: true
+}
+
+render_options = {}
+```
 
 In an initializer `config/initializers/mongoid_markdown.rb`:
 
