@@ -22,5 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mongoid", ">= 4.0"
 
   spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "coveralls"
   spec.add_development_dependency "rake"
 end
