@@ -38,6 +38,8 @@ MongoidMarkdownExtension::Markdown.configure do |c|
 end
 ```
 
+See [Redcarpet documentation](https://github.com/vmg/redcarpet) for available extensions and render options.
+
 ## Usage
 
 Add to a Mongoid model:
