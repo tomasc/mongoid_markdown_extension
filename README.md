@@ -29,7 +29,14 @@ Or install it yourself as:
 
 ## Configuration
 
-TODO: describe configuration options
+In an initializer `config/initializers/mongoid_markdown.rb`:
+
+```Ruby
+MongoidMarkdownExtension::Markdown.configure do |c|
+    c.extensions = { autolink: true }
+    c.render_options = { filter_html: true }
+end
+```
 
 ## Usage
 
