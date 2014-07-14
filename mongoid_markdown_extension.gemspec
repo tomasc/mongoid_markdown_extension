@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = MongoidMarkdownExtension::VERSION
   spec.authors       = ["Tomas Celizna"]
   spec.email         = ["tomas.celizna@gmail.com"]
-  spec.description   = %q{Handles markdown conversion}
-  spec.summary       = %q{Handles markdown conversion}
+  spec.description   = %q{Custom field type for Mongoid that handles Markdown conversion via Redcarpet gem.}
+  spec.summary       = %q{Custom field type for Mongoid that handles Markdown conversion via Redcarpet gem.}
   spec.homepage      = "https://github.com/tomasc/mongoid_markdown_extension"
   spec.license       = "MIT"
 
