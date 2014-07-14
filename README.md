@@ -2,8 +2,6 @@
 
 [Mongoid](https://github.com/mongoid/mongoid) field extension that returns an object with `to_html` method returning the content converted from Markdown syntax to html. The Markdown conversion is done using the [Redcarpet](https://github.com/vmg/redcarpet) library.
 
-These can be overwritten with an initializer. See Configuration below.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -35,7 +33,7 @@ extensions = {
 render_options = {}
 ```
 
-In an initializer `config/initializers/mongoid_markdown.rb`:
+These can be overwritten with an initializer, for example `config/initializers/mongoid_markdown.rb`:
 
 ```Ruby
 MongoidMarkdownExtension::Markdown.configure do |c|
