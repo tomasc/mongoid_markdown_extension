@@ -1,5 +1,7 @@
 # Mongoid Markdown Extension
 
+[![Build Status](https://travis-ci.org/tomasc/mongoid_markdown_extension.svg)](https://travis-ci.org/tomasc/mongoid_markdown_extension)
+
 [Mongoid](https://github.com/mongoid/mongoid) field extension that returns an object with `to_html` method returning the content converted from Markdown syntax to html. The Markdown conversion is done using the [Redcarpet](https://github.com/vmg/redcarpet) library.
 
 ## Installation
