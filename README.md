@@ -50,14 +50,21 @@ See [Redcarpet documentation](https://github.com/vmg/redcarpet) for available ex
 
 Add to a Mongoid model:
 
-    class MyModel
-        include Mongoid::Document
-        field :text, type: MongoidMarkdownExtension::Markdown
-    end
+```Ruby
+class MyModel
+  include Mongoid::Document
+  field :text, type: MongoidMarkdownExtension::Markdown
+end
+```
     
-Use it in a view:
+Use it:
 
-    = my_model.text.to_html
+```Ruby
+my_model.text = "*foo*"
+
+my_model.text.to_html # => <strong>foo</strong>
+my_model.text.to_s # => *foo*
+```
 
 ## Contributing
 
