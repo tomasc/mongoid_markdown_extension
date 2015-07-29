@@ -53,6 +53,15 @@ module MongoidMarkdownExtension
       end
     end
 
+    describe '#to_inline_html' do
+      it 'survives nil' do
+        MongoidMarkdownExtension::Markdown.new(nil).to_inline_html.must_equal ''
+      end
+      it 'converts the string to html' do
+        subject.to_inline_html.wont_include "<p>"
+      end
+    end
+
     describe '#mongoize' do
       it 'returns string' do
         subject.mongoize.must_equal string

@@ -16,6 +16,10 @@ module MongoidMarkdownExtension
       markdown_renderer.render(@str).html_safe
     end
 
+    def to_inline_html
+      markdown_inline_renderer.render(@str).html_safe
+    end
+
     def mongoize
       @str
     end
@@ -27,6 +31,10 @@ module MongoidMarkdownExtension
         Redcarpet::Render::HTML.new(self.class.configuration.render_options),
         self.class.configuration.extensions
       )
+    end
+
+    def markdown_inline_renderer
+      Redcarpet::Markdown.new(InlineRenderer, tables: false)
     end
 
     # ---------------------------------------------------------------------
