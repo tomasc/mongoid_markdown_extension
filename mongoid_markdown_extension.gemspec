@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "redcarpet", ">= 3.1.2"
-  spec.add_dependency "mongoid", "~> 5.0"
+  spec.add_dependency "mongoid", ">= 4.0", "< 6.0"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "coveralls"
