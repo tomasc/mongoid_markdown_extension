@@ -62,6 +62,15 @@ module MongoidMarkdownExtension
       end
     end
 
+    describe '#to_stripped_s' do
+      it 'survives nil' do
+        MongoidMarkdownExtension::Markdown.new(nil).to_stripped_s.must_equal ''
+      end
+      it 'converts the markdown to stripped string' do
+        subject.to_stripped_s.wont_include "_"
+      end
+    end
+
     describe '#mongoize' do
       it 'returns string' do
         subject.mongoize.must_equal string

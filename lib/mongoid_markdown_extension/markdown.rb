@@ -22,7 +22,7 @@ module MongoidMarkdownExtension
     end
 
     def to_stripped_s
-      Redcarpet::Render::StripDown.render(@str)
+      markdown_stripdown_renderer.render(@str)
     end
 
     def mongoize
@@ -40,6 +40,10 @@ module MongoidMarkdownExtension
 
     def markdown_inline_renderer
       Redcarpet::Markdown.new(InlineRenderer, tables: false)
+    end
+
+    def markdown_stripdown_renderer
+      Redcarpet::Markdown.new(Redcarpet::Render::StripDown, space_after_headers: true)
     end
 
     # ---------------------------------------------------------------------
