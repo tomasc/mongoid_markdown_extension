@@ -1,4 +1,5 @@
 require 'redcarpet'
+require 'redcarpet/render_strip'
 
 module MongoidMarkdownExtension
   class Markdown < String
@@ -18,6 +19,10 @@ module MongoidMarkdownExtension
 
     def to_inline_html
       markdown_inline_renderer.render(@str).html_safe
+    end
+
+    def to_stripped_s
+      Redcarpet::Render::StripDown.render(@str)
     end
 
     def mongoize
