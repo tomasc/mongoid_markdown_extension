@@ -46,11 +46,16 @@ module MongoidMarkdownExtension
     end
 
     describe '#to_inline_html' do
+      let(:string) { "some text with _italic_\n\nfoo" }
+
       it 'survives nil' do
         MongoidMarkdownExtension::Markdown.new(nil).to_inline_html.must_equal ''
       end
       it 'converts the string to html' do
         subject.to_inline_html.wont_include '<p>'
+      end
+      it 'replaces <p> with <br />' do
+        subject.to_inline_html.must_equal 'some text with <em>italic</em><br /><br />foo'
       end
     end
 

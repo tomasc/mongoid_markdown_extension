@@ -41,7 +41,7 @@ module MongoidMarkdownExtension
     end
 
     def paragraph(text)
-      text
+      text + "<br /><br />"
     end
   end
 end

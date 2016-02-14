@@ -17,7 +17,7 @@ module MongoidMarkdownExtension
     end
 
     def to_inline_html
-      markdown_inline_renderer.render(@str).html_safe
+      markdown_inline_renderer.render(@str).html_safe.gsub(/(<br\s?\/?>)+?\Z/, '')
     end
 
     def to_stripped_s
