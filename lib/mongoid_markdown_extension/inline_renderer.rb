@@ -41,7 +41,7 @@ module MongoidMarkdownExtension
     end
 
     def paragraph(text)
-      text + "<br /><br />"
+      text.gsub("\n", '<br />') + "<br /><br />"
     end
   end
 end
