@@ -3,8 +3,7 @@ require 'redcarpet/render_strip'
 
 module MongoidMarkdownExtension
   class Markdown < String
-
-    def initialize str
+    def initialize(str)
       super str.to_s
       @str = str.to_s
     end
@@ -49,7 +48,6 @@ module MongoidMarkdownExtension
     # ---------------------------------------------------------------------
 
     class << self
-
       attr_accessor :configuration
 
       def configure
@@ -61,24 +59,23 @@ module MongoidMarkdownExtension
         @configuration ||= Configuration.new
       end
 
-      def demongoize value
+      def demongoize(value)
         Markdown.new(value)
       end
 
-      def mongoize value
+      def mongoize(value)
         case value
         when Markdown then value.mongoize
         else value
         end
       end
 
-      def evolve value
+      def evolve(value)
         case value
         when Markdown then value.mongoize
         else value
         end
       end
-
     end
   end
 

@@ -11,7 +11,6 @@ end
 
 module MongoidMarkdownExtension
   describe Markdown do
-
     let(:string) { 'some text with _italic_' }
     subject { MongoidMarkdownExtension::Markdown.new(string) }
 
@@ -23,14 +22,7 @@ module MongoidMarkdownExtension
           end
         end
         it 'returns default values' do
-          MongoidMarkdownExtension::Markdown.configuration.extensions.must_equal({
-            autolink: true,
-            footnotes: true,
-            highlight: true,
-            space_after_headers: true,
-            strikethrough: true,
-            superscript: true
-          })
+          MongoidMarkdownExtension::Markdown.configuration.extensions.must_equal(autolink: true, footnotes: true, highlight: true, space_after_headers: true, strikethrough: true, superscript: true)
           MongoidMarkdownExtension::Markdown.configuration.render_options.must_equal({})
         end
       end
@@ -58,7 +50,7 @@ module MongoidMarkdownExtension
         MongoidMarkdownExtension::Markdown.new(nil).to_inline_html.must_equal ''
       end
       it 'converts the string to html' do
-        subject.to_inline_html.wont_include "<p>"
+        subject.to_inline_html.wont_include '<p>'
       end
     end
 
@@ -67,7 +59,7 @@ module MongoidMarkdownExtension
         MongoidMarkdownExtension::Markdown.new(nil).to_stripped_s.must_equal ''
       end
       it 'converts the markdown to stripped string' do
-        subject.to_stripped_s.wont_include "_"
+        subject.to_stripped_s.wont_include '_'
       end
     end
 
@@ -101,6 +93,5 @@ module MongoidMarkdownExtension
         MongoidMarkdownExtension::Markdown.demongoize(string).must_be_kind_of MongoidMarkdownExtension::Markdown
       end
     end
-
   end
 end

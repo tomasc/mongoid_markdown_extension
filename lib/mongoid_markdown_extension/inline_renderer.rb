@@ -2,30 +2,29 @@ require 'redcarpet'
 
 module MongoidMarkdownExtension
   class InlineRenderer < Redcarpet::Render::HTML
-
     include Redcarpet::Render::SmartyPants
 
-    def block_code code, language
+    def block_code(_code, _language)
       nil
     end
 
-    def block_quote quote
+    def block_quote(_quote)
       nil
     end
 
-    def block_html raw_html
+    def block_html(_raw_html)
       nil
     end
 
-    def footnotes content
+    def footnotes(_content)
       nil
     end
 
-    def footnote_def content, number
+    def footnote_def(_content, _number)
       nil
     end
 
-    def header text, header_level
+    def header(_text, _header_level)
       nil
     end
 
@@ -33,17 +32,16 @@ module MongoidMarkdownExtension
       nil
     end
 
-    def list contents, list_type
+    def list(_contents, _list_type)
       nil
     end
 
-    def list_item text, list_type
+    def list_item(_text, _list_type)
       nil
     end
 
-    def paragraph text
+    def paragraph(text)
       text
     end
-
   end
 end
