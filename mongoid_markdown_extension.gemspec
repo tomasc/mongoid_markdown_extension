@@ -6,8 +6,8 @@ require 'mongoid_markdown_extension/version'
 Gem::Specification.new do |spec|
   spec.name          = 'mongoid_markdown_extension'
   spec.version       = MongoidMarkdownExtension::VERSION
-  spec.authors       = ['Tomáš Celizna']
-  spec.email         = ['tomas.celizna@gmail.com']
+  spec.authors       = ['Tomas Celizna']
+  spec.email         = ['mail@tomascelizna.com']
   spec.description   = 'Custom field type for Mongoid that handles Markdown conversion via Redcarpet gem.'
   spec.summary       = 'Custom field type for Mongoid that handles Markdown conversion via Redcarpet gem.'
   spec.homepage      = 'https://github.com/tomasc/mongoid_markdown_extension'

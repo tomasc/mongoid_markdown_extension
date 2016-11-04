@@ -22,7 +22,14 @@ module MongoidMarkdownExtension
           end
         end
         it 'returns default values' do
-          MongoidMarkdownExtension::Markdown.configuration.extensions.must_equal(autolink: true, footnotes: true, highlight: true, space_after_headers: true, strikethrough: true, superscript: true)
+          MongoidMarkdownExtension::Markdown.configuration.extensions.must_equal(
+            autolink: true,
+            footnotes: true,
+            highlight: true,
+            space_after_headers: true,
+            strikethrough: true,
+            superscript: true
+          )
           MongoidMarkdownExtension::Markdown.configuration.render_options.must_equal({})
         end
       end

@@ -5,7 +5,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/spec'
 
-if ENV["CI"]
-  require "coveralls"
+if ENV['CI']
+  require 'coveralls'
   Coveralls.wear!
 end
