@@ -8,28 +8,34 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'mongoid_markdown_extension'
+```ruby
+gem 'mongoid_markdown_extension'
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install mongoid_markdown_extension
+```sh
+$ gem install mongoid_markdown_extension
+```
 
 ## Configuration
 
 The defaults are as follows:
 
-```Ruby
+```ruby
 extensions = {
-    autolink: true
-    footnotes: true
-    highlight: true
-    space_after_headers: true
-    strikethrough: true
-    superscript: true
+  autolink: true
+  footnotes: true
+  highlight: true
+  space_after_headers: true
+  strikethrough: true
+  superscript: true
 }
 
 render_options = {}
@@ -37,10 +43,11 @@ render_options = {}
 
 These can be overwritten with an initializer, for example `config/initializers/mongoid_markdown.rb`:
 
-```Ruby
+```ruby
 MongoidMarkdownExtension::Markdown.configure do |c|
-    c.extensions = { autolink: true }
-    c.render_options = { filter_html: true }
+  c.extensions = { autolink: true }
+  c.render_class = CustomRenderer
+  c.render_options = { filter_html: true }
 end
 ```
 
@@ -50,13 +57,13 @@ See [Redcarpet documentation](https://github.com/vmg/redcarpet) for available ex
 
 Add to a Mongoid model:
 
-```Ruby
+```ruby
 class MyModel
   include Mongoid::Document
   field :text, type: MongoidMarkdownExtension::Markdown
 end
 ```
-    
+
 Use it:
 
 ```Ruby

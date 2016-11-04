@@ -7,6 +7,21 @@ class MongoidMarkdownExtensionTest
   field :body, type: MongoidMarkdownExtension::Markdown
 end
 
+class CustomRenderer < Redcarpet::Render::HTML
+  def preprocess(doc)
+    doc.gsub(/\[button:(.*)\]\((.*)\)/) do
+      button_label = Regexp.last_match(1)
+      button_link = Regexp.last_match(2)
+
+      if button_label && button_link
+        "<a href='#{button_link}' class='button'>#{button_label}</a>"
+      else
+        button_label
+      end
+    end
+  end
+end
+
 # ---------------------------------------------------------------------
 
 module MongoidMarkdownExtension
@@ -30,6 +45,7 @@ module MongoidMarkdownExtension
             strikethrough: true,
             superscript: true
           )
+          MongoidMarkdownExtension::Markdown.configuration.render_class.must_equal Redcarpet::Render::HTML
           MongoidMarkdownExtension::Markdown.configuration.render_options.must_equal({})
         end
       end

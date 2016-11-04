@@ -32,11 +32,12 @@ module MongoidMarkdownExtension
 
     def markdown_renderer
       Redcarpet::Markdown.new(
-        Redcarpet::Render::HTML.new(self.class.configuration.render_options),
+        self.class.configuration.render_class.new(self.class.configuration.render_options),
         self.class.configuration.extensions
       )
     end
 
+    # TODO: how to combine custom render class with the InlineRenderer?
     def markdown_inline_renderer
       Redcarpet::Markdown.new(InlineRenderer, tables: false)
     end
@@ -83,6 +84,7 @@ module MongoidMarkdownExtension
 
   class Configuration
     attr_accessor :extensions
+    attr_accessor :render_class
     attr_accessor :render_options
 
     def initialize
@@ -94,6 +96,7 @@ module MongoidMarkdownExtension
         strikethrough: true,
         superscript: true
       }
+      @render_class = Redcarpet::Render::HTML
       @render_options = {}
     end
   end
