@@ -97,6 +97,4 @@ module MongoidMarkdownExtension
       @render_options = {}
     end
   end
-
-  # ---------------------------------------------------------------------
 end
