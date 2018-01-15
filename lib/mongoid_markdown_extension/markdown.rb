@@ -3,6 +3,40 @@ require 'redcarpet/render_strip'
 
 module MongoidMarkdownExtension
   class Markdown < String
+    class << self
+      attr_writer :configuration
+    end
+
+    def self.configuration
+      @configuration ||= Configuration.new
+    end
+
+    def self.reset
+      @configuration = Configuration.new
+    end
+
+    def self.configure
+      yield(configuration)
+    end
+
+    def self.demongoize(value)
+      Markdown.new(value)
+    end
+
+    def self.mongoize(value)
+      case value
+      when Markdown then value.mongoize
+      else value
+      end
+    end
+
+    def self.evolve(value)
+      case value
+      when Markdown then value.mongoize
+      else value
+      end
+    end
+
     def initialize(str)
       super str.to_s
       @str = str.to_s
@@ -28,13 +62,14 @@ module MongoidMarkdownExtension
       @str
     end
 
-    private # =============================================================
+    private
 
     def markdown_renderer
-      Redcarpet::Markdown.new(
-        self.class.configuration.render_class.new(self.class.configuration.render_options),
-        self.class.configuration.extensions
-      )
+      render_class = MongoidMarkdownExtension::Markdown.configuration.render_class
+      render_options = MongoidMarkdownExtension::Markdown.configuration.render_options
+      extensions = MongoidMarkdownExtension::Markdown.configuration.extensions
+
+      Redcarpet::Markdown.new(render_class.new(render_options), extensions)
     end
 
     # TODO: how to combine custom render class with the InlineRenderer?
@@ -43,44 +78,9 @@ module MongoidMarkdownExtension
     end
 
     def markdown_stripdown_renderer
-      Redcarpet::Markdown.new(Redcarpet::Render::StripDown, space_after_headers: true)
-    end
-
-    # ---------------------------------------------------------------------
-
-    class << self
-      attr_accessor :configuration
-
-      def configure
-        @configuration ||= Configuration.new
-        yield @configuration
-      end
-
-      def configuration
-        @configuration ||= Configuration.new
-      end
-
-      def demongoize(value)
-        Markdown.new(value)
-      end
-
-      def mongoize(value)
-        case value
-        when Markdown then value.mongoize
-        else value
-        end
-      end
-
-      def evolve(value)
-        case value
-        when Markdown then value.mongoize
-        else value
-        end
-      end
+      Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     end
   end
-
-  # ---------------------------------------------------------------------
 
   class Configuration
     attr_accessor :extensions
