@@ -55,7 +55,7 @@ module MongoidMarkdownExtension
     end
 
     def to_stripped_s
-      markdown_stripdown_renderer.render(@str)
+      markdown_stripdown_renderer.render(@str).try(:strip)
     end
 
     def mongoize

@@ -94,6 +94,10 @@ module MongoidMarkdownExtension
       it 'converts the markdown to stripped string' do
         subject.to_stripped_s.wont_include '_'
       end
+
+      it 'removes newlines' do
+        subject.to_stripped_s.wont_include "\n"
+      end
     end
 
     describe '#mongoize' do
