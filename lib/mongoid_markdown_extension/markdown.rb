@@ -74,7 +74,11 @@ module MongoidMarkdownExtension
 
     # TODO: how to combine custom render class with the InlineRenderer?
     def markdown_inline_renderer
-      Redcarpet::Markdown.new(InlineRenderer, tables: false)
+      render_options = MongoidMarkdownExtension::Markdown.configuration.render_options
+      extensions = MongoidMarkdownExtension::Markdown.configuration.extensions
+      extensions[:tables] = false
+
+      Redcarpet::Markdown.new(InlineRenderer.new(render_options), extensions)
     end
 
     def markdown_stripdown_renderer
