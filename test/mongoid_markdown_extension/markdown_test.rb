@@ -50,6 +50,7 @@ module MongoidMarkdownExtension
           )
           MongoidMarkdownExtension::Markdown.configuration.render_class.must_equal Redcarpet::Render::HTML
           MongoidMarkdownExtension::Markdown.configuration.render_options.must_equal({})
+          _(MongoidMarkdownExtension::Markdown.configuration.inline_render_class).must_equal MongoidMarkdownExtension::InlineRenderer
         end
       end
     end
