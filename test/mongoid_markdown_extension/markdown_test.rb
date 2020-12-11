@@ -129,5 +129,16 @@ module MongoidMarkdownExtension
         MongoidMarkdownExtension::Markdown.demongoize(string).must_be_kind_of MongoidMarkdownExtension::Markdown
       end
     end
+
+    describe "splitting" do
+      it "returns correctly instantiated markdown objects" do
+        markdown = MongoidMarkdownExtension::Markdown.new("foo\nbar\nfar\nboo")
+        split_markdown = markdown.split("\n")
+
+        _(split_markdown.first).must_be_kind_of MongoidMarkdownExtension::Markdown
+        _(split_markdown.first.to_s).must_equal "foo"
+        _(split_markdown.first.to_html).must_match /<p>foo<\/p>/
+      end
+    end
   end
 end

@@ -38,28 +38,19 @@ module MongoidMarkdownExtension
     end
 
     def initialize(str)
-      super str.to_s
-      @str = str.to_s
-    end
-
-    def to_s
-      @str
+      super(str.to_s)
     end
 
     def to_html
-      markdown_renderer.render(@str).html_safe
+      markdown_renderer.render(to_s).html_safe
     end
 
     def to_inline_html
-      markdown_inline_renderer.render(@str).gsub(/(<br\s?\/?>)+?\Z/, '').html_safe
+      markdown_inline_renderer.render(to_s).gsub(/(<br\s?\/?>)+?\Z/, '').html_safe
     end
 
     def to_stripped_s
-      markdown_stripdown_renderer.render(@str).try(:strip)
-    end
-
-    def mongoize
-      @str
+      markdown_stripdown_renderer.render(to_s).try(:strip)
     end
 
     private
