@@ -72,6 +72,7 @@ module MongoidMarkdownExtension
 
     describe '#to_inline_html' do
       let(:string) { "some text with _italic_\n\nfoo" }
+      let(:string_with_line_breaks) { "some text with line break  \nfoo" }
 
       it 'survives nil' do
         MongoidMarkdownExtension::Markdown.new(nil).to_inline_html.must_equal ''
@@ -81,8 +82,15 @@ module MongoidMarkdownExtension
         subject.to_inline_html.wont_include '<p>'
       end
 
-      it 'replaces <p> with <br />' do
-        subject.to_inline_html.must_equal 'some text with <em>italic</em><br /><br />foo'
+      it 'replaces <p> with <br>' do
+        subject.to_inline_html.must_equal 'some text with <em>italic</em><br><br>foo'
+      end
+
+      it 'allows line breaks' do
+        MongoidMarkdownExtension::Markdown
+          .new(string_with_line_breaks)
+          .to_inline_html(line_breaks: true)
+          .must_equal "some text with line break<br>\nfoo"
       end
     end
 
