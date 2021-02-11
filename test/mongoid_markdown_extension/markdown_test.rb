@@ -84,14 +84,14 @@ module MongoidMarkdownExtension
       end
 
       it 'replaces <p> with <br>' do
-        subject.to_inline_html.must_equal 'some text with <em>italic</em><br><br>foo'
+        _(subject.to_inline_html).must_equal 'some text with <em>italic</em><br><br>foo'
       end
 
       it 'allows line breaks' do
-        MongoidMarkdownExtension::Markdown
+        inline_html = MongoidMarkdownExtension::Markdown
           .new(string_with_line_breaks)
           .to_inline_html(line_breaks: true)
-          .must_equal "some text with line break<br>\nfoo"
+        _(inline_html).must_equal "some text with line break<br>\nfoo"
       end
     end
 
