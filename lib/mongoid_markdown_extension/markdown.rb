@@ -46,7 +46,7 @@ module MongoidMarkdownExtension
     end
 
     def to_inline_html(line_breaks: false)
-      rendered = markdown_inline_renderer.render(@str).gsub(/(<br\s?\/?>)+?\z/, '')
+      rendered = markdown_inline_renderer.render(to_s).gsub(/(<br\s?\/?>)+?\z/, '')
       rendered.gsub!(/(<br\s?\/?>)+?\Z/, '') if !line_breaks
       rendered.html_safe
     end
