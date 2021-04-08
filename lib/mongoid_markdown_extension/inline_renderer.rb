@@ -40,8 +40,11 @@ module MongoidMarkdownExtension
       nil
     end
 
-    def paragraph(text)
-      text + '<br><br>'
+    def postprocess(full_document)
+      full_document
+        .gsub(/(<\/p>\s*<p>)+?/, '<br><br>')
+        .gsub(/(<\/?p>)+?/, '')
+        .chop
     end
   end
 end
