@@ -1,8 +1,15 @@
 # CHANGELOG
 
+## Next
+
+- Added `linebreaks` option to `to_inline_html`
+- Added `inline_render_class` configuration option
+- Fixed `to_inline_html`
+- Fixed usage of String methods
+
 ## 0.1.10
 
-- FIX: pass configuration to `InlineRenderer` as well
+- Fixed passing configuration to `InlineRenderer`
 
 ## 0.1.9
 
