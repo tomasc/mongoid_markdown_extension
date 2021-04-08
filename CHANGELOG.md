@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Next
+## 0.2.0
 
 - Added `linebreaks` option to `to_inline_html`
 - Added `inline_render_class` configuration option
