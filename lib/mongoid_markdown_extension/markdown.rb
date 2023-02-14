@@ -45,6 +45,10 @@ module MongoidMarkdownExtension
       super(*args).map { |str| self.class.new(str) }
     end
 
+    def gsub(*args)
+      self.class.new(super(*args))
+    end
+
     def to_html
       markdown_renderer.render(to_s).html_safe
     end
