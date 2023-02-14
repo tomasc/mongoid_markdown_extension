@@ -5,35 +5,35 @@ module MongoidMarkdownExtension
   class Markdown < String
     class << self
       attr_writer :configuration
-    end
 
-    def self.configuration
-      @configuration ||= Configuration.new
-    end
-
-    def self.reset
-      @configuration = Configuration.new
-    end
-
-    def self.configure
-      yield(configuration)
-    end
-
-    def self.demongoize(value)
-      Markdown.new(value)
-    end
-
-    def self.mongoize(value)
-      case value
-      when Markdown then value.mongoize
-      else value
+      def configuration
+        @configuration ||= Configuration.new
       end
-    end
 
-    def self.evolve(value)
-      case value
-      when Markdown then value.mongoize
-      else value
+      def reset
+        @configuration = Configuration.new
+      end
+
+      def configure
+        yield(configuration)
+      end
+
+      def demongoize(value)
+        Markdown.new(value)
+      end
+
+      def mongoize(value)
+        case value
+        when Markdown then value.mongoize
+        else value
+        end
+      end
+
+      def evolve(value)
+        case value
+        when Markdown then value.mongoize
+        else value
+        end
       end
     end
 
