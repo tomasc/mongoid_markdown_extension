@@ -147,6 +147,7 @@ module MongoidMarkdownExtension
         _(split_markdown.first).must_be_kind_of MongoidMarkdownExtension::Markdown
         _(split_markdown.first.to_s).must_equal "foo"
         _(split_markdown.first.to_html).must_match /<p>foo<\/p>/
+      end
 
       it "returns correctly instantiated markdown objects" do
         markdown = MongoidMarkdownExtension::Markdown.new("foo\nbar\nfar\nboo")
