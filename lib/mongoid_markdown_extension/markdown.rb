@@ -41,6 +41,10 @@ module MongoidMarkdownExtension
       super(str.to_s)
     end
 
+    def split(*args)
+      super(*args).map { |str| self.class.new(str) }
+    end
+
     def to_html
       markdown_renderer.render(to_s).html_safe
     end
