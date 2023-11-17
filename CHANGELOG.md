@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1
+
+- Mongoid 8 compatibility
+
 ## 0.2.0
 
 - Added `linebreaks` option to `to_inline_html`
