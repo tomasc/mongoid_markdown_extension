@@ -9,7 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: ['2.7', '3.2']
+        gemfile: ["6", "7", "8"]
+        ruby: ["2.7", "3.0", "3.1", "3.2"]
+        include:
+          - gemfile: "4"
+            ruby: "2.5"
+          - gemfile: "5"
+            ruby: "2.5"
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
